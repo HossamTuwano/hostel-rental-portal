@@ -1,4 +1,4 @@
 {
-  "dbURI": "mongodb+srv://hossam:1234hossam@cluster0.47ejl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "dbURI": "mongodb+srv://hossam:1234hossam@cluster0.47ejl.mongodb.net/hrs?retryWrites=true&w=majority",
   "secret": "hrs_myJwtSecret"
 }

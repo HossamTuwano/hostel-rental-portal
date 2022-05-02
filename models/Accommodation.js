@@ -40,6 +40,10 @@ const AccommodationSchema = new Schema({
   noOfBeds: {
     type: Number,
   },
+
+  image: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Accommodation", AccommodationSchema);

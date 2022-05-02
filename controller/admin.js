@@ -1,32 +1,43 @@
 const Accommodation = require("../models/Accommodation");
+const multer = require("multer");
 
 exports.postAddAccommodation = (req, res, next) => {
-  const name = req.body.name;
-  const cname = req.body.cname;
+  const accommodationName = req.body.accommodationName;
+  const contactName = req.body.contactName;
   const phone = req.body.phone;
   const region = req.body.region;
   const city = req.body.city;
-  const rtype = req.body.rtype;
-  const boptions = req.body.boptions;
-  const beds = req.body.beds;
+  const roomType = req.body.roomType;
+  const bedOptions = req.body.bedOptions;
+  const noOfBeds = req.body.noOfBeds;
+  const image = req.body.image;
+
+  console.log(image);
 
   const accommodation = new Accommodation({
-    accommodationName: name,
-    contactName: cname,
+    accommodationName: accommodationName,
+    contactName: contactName,
     region: region,
     city: city,
     phone: phone,
-    roomType: rtype,
-    bedOptions: boptions,
-    noOfBeds: beds,
+    roomType: roomType,
+    bedOptions: bedOptions,
+    noOfBeds: noOfBeds,
+    image: image,
   });
 
   accommodation
     .save()
     .then((result) => {
-      res.status(200).json({ msg: "added" });
+      res.status(200).json({ msg: "added", accommodation });
     })
     .catch((err) => {
       console.log(err);
     });
+};
+
+// get accommodations
+
+exports.getAddAccommodation = (req, res, next) => {
+  Accommodation.find().then((accommodation) => res.json(accommodation));
 };
